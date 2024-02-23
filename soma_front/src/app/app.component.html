@@ -1,0 +1,40 @@
+
+<nav class="sidebar">
+  <div class="sidebar-header">
+    <h3>SOMA System</h3>
+  </div>
+  <ul class="list-unstyled components">
+    <li>
+      <a routerLink="/home">Home</a>
+    </li>
+    <li>
+      <a routerLink="/student">Students</a>
+    </li>
+        <li>
+      <a routerLink="/student-details">Students Registered</a>
+    </li>
+    
+    <li>
+      <a routerLink="/course">Courses</a>
+    </li>
+    <li>
+      <a routerLink="/enrollment">Enrollments</a>
+    </li>
+        <li>
+      <a routerLink="/module">Modules</a>
+    </li>
+        <li>
+      <a routerLink="/semester-result">Semester Result</a>
+        </li>
+              <li>
+      <a routerLink="/teacher">Teacher</a>
+    </li>
+    <li>
+        <a (click)="logout()">Logout</a>
+    </li>
+  </ul>
+</nav>
+<div class="content">
+ <router-outlet></router-outlet>
+
+</div>

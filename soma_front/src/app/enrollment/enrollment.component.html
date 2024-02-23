@@ -1,0 +1,35 @@
+<div class="container mt-4">
+  <h2 class="text-success">Submit Enrollment Details</h2>
+  <form *ngIf="EnrollmentForm" [formGroup]="EnrollmentForm" (submit)="onSubmit()">
+
+     <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Enrollment  Details</h5>
+
+
+          <div class="form-group">
+              <label for="last_name">Student name</label>
+             <select class="form-control" id="last_name" formControlName="last_name">
+             <option *ngFor="let student of students" [value]="student.student_id">{{ student.last_name }}{{  ', '+student.first_name }} </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="date_of_admission" class="form-label">Date Of Admission:</label>
+          <input type="date" id="date_of_admission" class="form-control" formControlName="date_of_admission" />
+        </div>
+
+        <div class="mb-3">
+          <label for="date_of_graduation" class="form-label">Date Of Graduation:</label>
+          <input type="date" id="date_of_graduation" class="form-control" formControlName="date_of_graduation" />
+        </div>
+ 
+
+          <button type="submit" class="btn btn-primary mt-3" (click)="onSubmit">Submit</button>
+     </div>
+     </div>
+   </form>
+</div>
+
+
+

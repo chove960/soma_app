@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Transcript</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .student-info, .enrollment-info, .semester-results {
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            border: 1px solid #ddd;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dar es Salaam Institute of Technology Academic Transcript</h1>
+
+        <div class="student-info">
+            <h2>Student Information:</h2>
+            <table>
+                <tr>
+                    <th>Registration Number:</th>
+                    <td>{{ student.reg_no }}</td>
+                </tr>
+                <tr>
+                    <th>Name:</th>
+                    <td>{{ student.first_name }} {{ student.last_name }}</td>
+                </tr>
+                <tr>
+                    <th>Date of Birth:</th>
+                    <td>{{ student.date_of_birth }}</td>
+                </tr>
+                <tr>
+                    <th>Gender:</th>
+                    <td>{{ student.gender }}</td>
+                </tr>
+                <tr>
+                    <th>Course:</th>
+                    <td>{{ student.course.award_title }} - {{ student.course.course_title }}</td>
+                </tr>
+                 <tr>
+                    <th>Overall Grade:</th>
+                    <td>{{ student.gpa }}</td>
+                </tr>
+            </table>
+        </div>
+
+        <div class="enrollment-info">
+            <h2>Enrollment Information:</h2>
+            <table>
+                <tr>
+                    <th>Date of Admission:</th>
+                    <td>{{ enrollment.date_of_admission }}</td>
+                </tr>
+                <tr>
+                    <th>Date of Graduation:</th>
+                    <td>{{ enrollment.date_of_graduation }}</td>
+                </tr>
+            </table>
+        </div>
+
+{% for semester_number, results in semester_results.items %}
+<div class="semester-results">
+    <h2>Semester {{ semester_number }} Results:</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Module Code</th>
+                <th>Module Name</th>
+                <th>Grade</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for result in results %}
+            <tr>
+                <td>{{ result.module.module_code }}</td>
+                <td>{{ result.module.module_name }}</td>
+                <td>{{ result.grade }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endfor %}
+<div class="signature">
+            <p>Signed by: ________________________</p>
+            <p>Date: _____________________________</p>
+        </div>
+    </div>
+</body>
+
+
+</html>

@@ -1,0 +1,30 @@
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header text-center bg-primary text-white">
+          <h3>Welcome to Our Platform</h3>
+        </div>
+        <div class="card-body">
+<form *ngIf="loginForm" [formGroup]="loginForm" (submit)="onSubmit()">
+  <div class="mb-3">
+    <label for="last_name" class="form-label">Last Name</label>
+    <input type="text" class="form-control" id="last_name" formControlName="last_name" placeholder="Enter your last name">
+  </div>
+  <div class="mb-3">
+    <label for="password" class="form-label">Password</label>
+    <input type="password" class="form-control" id="password" formControlName="password" placeholder="Enter your password">
+  </div>
+  <div class="d-grid">
+    <button type="submit" class="btn btn-primary btn-block">Login</button>
+  </div>
+</form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+

@@ -1,0 +1,31 @@
+
+<div class="container mt-4">
+  <h2 class="text-success">Register Course
+  </h2>
+  <form *ngIf="CourseForm" [formGroup]="CourseForm" (submit)="onSubmit()">
+
+     <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Course  Details</h5>
+
+        <div class="mb-3">
+             <label for="course_title" class="form-label">Course Title</label>
+             <input type="text" id="course_title" class="form-control" formControlName="course_title" />
+
+          </div>
+
+
+           <div class="mb-3">
+             <label for="award_title" class="form-label">Award title
+             </label>
+             <input type="text" id="award_title" class="form-control" formControlName="award_title" />
+
+
+         </div>
+
+
+          <button type="submit" class="btn btn-primary mt-3" [disabled]="CourseForm.invalid" (click)="onSubmit" >Submit</button>
+     </div>
+     </div>
+   </form>
+</div>

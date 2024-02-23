@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <h2 class="text-success">Register Module </h2>
+  <form *ngIf="ModuleForm" [formGroup]="ModuleForm" (submit)="onSubmit()">
+
+     <div class="card">
+      <div class="card-body">
+        <h5 class="card-title">Module Details</h5>
+
+              <div class="form-group">
+              <label for="last_name">Teacher's name</label>
+             <select class="form-control" id="last_name" formControlName="last_name">
+             <option *ngFor="let teacher of teachers" [value]="teacher.teacher_id">{{ teacher.last_name }}{{  ', '+teacher.first_name }} </option>
+          </select>
+        </div>
+
+        <div class="mb-3">
+          <label for="module_code" class="form-label">Module Code:</label>
+          <input type="text" id="module_code" class="form-control" formControlName="module_code" />
+        </div>
+
+        <div class="mb-3">
+          <label for="module_name" class="form-label">Module Name:</label>
+          <input type="text" id="module_name" class="form-control" formControlName="module_name" />
+        </div>
+ 
+
+          <button type="submit" class="btn btn-primary mt-3" [disabled]="ModuleForm.invalid" (click)="onSubmit">Submit</button>
+     </div>
+     </div>
+   </form>
+</div>
+
+

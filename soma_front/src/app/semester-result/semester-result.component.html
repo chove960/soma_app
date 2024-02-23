@@ -1,0 +1,60 @@
+<div class="container mt-4">
+  <h2 class="text-success">Submit Semester Result</h2>
+
+  <form [formGroup]="semesterResultForm" (ngSubmit)="onSubmit()">
+    <div formArrayName="semesterResults">
+      <div *ngIf="semesterResultForm?.get('semesterResults')">
+
+        <div *ngFor="let semesterResult of getSemesterResultsControls(); let i = index">
+        <div [formGroupName]="i" class="card mb-4">
+          <div class="card-body">
+            <h5 class="card-title">Result Details</h5>
+      
+            <div class="form-group">
+              <label for="semester_number">Semester Number</label>
+              <input type="text" class="form-control" id="semester_number" formControlName="semester_number">
+            </div>
+
+            <div class="form-group">
+              <label for="last_name">Student name</label>
+              <select class="form-control" id="last_name" formControlName="last_name">
+                <option *ngFor="let student of students" [value]="student.student_id">{{ student.last_name }}, {{ student.first_name }}</option>
+              </select>
+            </div>
+
+            <div formArrayName="modules">
+              <div *ngFor="let module of getModulesControls(i); let j = index">
+                <div [formGroupName]="j">
+                  <div class="form-group">
+                    <label for="module_name">Module</label>
+                    <select class="form-control" id="module_name" formControlName="module_name">
+                      <option *ngFor="let moduleOption of modules" [value]="moduleOption.module_code">{{ moduleOption.module_name }}</option>
+                    </select>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+
+            <button type="button" class="btn btn-primary" (click)="addModule(i)">Add Module</button>
+          </div>
+        </div>
+      </div>
+      
+      </div>
+
+    </div>
+    <div class="mb-5">
+
+        <div class="mr-3" style="display: inline-block;">
+    <button type="button" class="btn btn-primary mt-3" (click)="addSemesterResult()">Register Module</button>
+  </div>
+  <div style="display: inline-block;">
+    <button type="submit" class="btn btn-primary mt-3" [disabled]="semesterResultForm.invalid" >Submit</button>
+  </div>
+
+
+    </div>
+
+  </form>
+</div>

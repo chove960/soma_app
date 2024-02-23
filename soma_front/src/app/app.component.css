@@ -1,0 +1,51 @@
+.sidebar {
+  background-color: #f0f8ff; /* Light blue background color */
+  width: 250px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  overflow-y: auto;
+  padding-top: 20px;
+  z-index: 1000; /* Ensure sidebar is above other content */
+}
+
+.content {
+  margin-left: 250px; /* Adjust margin to account for sidebar width */
+  padding: 20px;
+}
+
+/* Clearfix for the content */
+.content::after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+
+/* Adjust width of main content */
+.router-outlet {
+  width: calc(100% - 250px); /* Subtract sidebar width from 100% */
+}
+
+
+.sidebar ul {
+  padding-left: 0;
+}
+
+.sidebar ul li {
+  list-style: none;
+}
+
+.sidebar ul li a {
+  display: block;
+  padding: 10px 15px;
+  color: #333;
+  text-decoration: none;
+  transition: background-color 0.3s ease; /* Smooth transition on hover */
+}
+
+.sidebar ul li a:hover {
+  background-color: #c7ecee; /* Light blue background color on hover */
+  color: #fff; /* White text color on hover */
+}

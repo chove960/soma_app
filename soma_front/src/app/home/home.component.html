@@ -1,0 +1,36 @@
+<div class="container mt-5">
+  <div class="jumbotron">
+    <h1 class="display-4">Welcome to SOMA System</h1>
+    <p class="lead">Your ultimate platform for managing academic records and performance.</p>
+    <hr class="my-4">
+    <p>Explore our features and services to streamline your academic journey.</p>
+    <div class="mb-5">
+      <a class="btn btn-primary btn-lg me-2" href="#" role="button" routerLink="/course">Get Started</a>
+      <!-- New button for viewing transcript -->
+     <button class="btn btn-success" (click)="generateTranscript(student.student_id)">Generate Transcript</button>
+    </div>
+    <div class="modal" [ngClass]="{ 'show': selectedStudent, 'd-block': selectedStudent }" (click)="clearTranscript()">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Transcript for {{ selectedStudent?.first_name }} {{ selectedStudent?.last_name }}</h5>
+        <button type="button" class="close" aria-label="Close" (click)="clearTranscript()">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pdf-viewer [src]="pdfSrc" style="display: block; min-height: 750px;"></pdf-viewer>
+      </div>
+      <div class="modal-footer">
+        <a [href]="pdfSrc" download="transcript.pdf" class="btn btn-primary">Download Transcript</a>
+        <button type="button" class="btn btn-secondary" (click)="clearTranscript()">Close</button>
+      </div>
+    </div>
+  </div>
+  </div>
+</div>
+
+
+<!-- Modal -->
+
+
